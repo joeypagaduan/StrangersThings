@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import { Route, Link } from 'react-router-dom';
+import { fetchFromAPI } from './api';
 
 import {
     AccountForm,
@@ -11,9 +12,21 @@ import {
 const App = () => {
     const [token, setToken] = useState(null);
     const [user, setUser] = useState(null);
+    const [posts, setPosts] = useState([]);
+
+    const fetchPosts = async () => {
+        const data = await fetchFromAPI({
+            endpoint: "posts", token
+        })
+
+        if (data?.posts) {
+            setPosts(data.posts);
+        }
+    }
 
     useEffect(() => {
-    }, [token, user])
+        fetchPosts();
+    }, [token]);
 
     return (
         <>
@@ -31,7 +44,13 @@ const App = () => {
                 <Home user={user} />
             </Route>
             <Route path="/posts">
-                <Posts  token={token} />
+                {posts
+                    ? <Posts
+                        token={token}
+                        fetchPosts={fetchPosts}
+                        posts={posts}
+                    /> : <strong>No posts to display!</strong>
+                }
             </Route>
             <Route exact path="/profile">
                 <Profile user={user} />
