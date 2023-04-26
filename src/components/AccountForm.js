@@ -6,7 +6,6 @@ import { fetchFromAPI } from "../api";
 const AccountForm = ({setToken, setUser}) => {
     const params = useParams();
     const history = useHistory();
-    console.log(params);
     
     const {actionType} = params;
     
@@ -39,7 +38,6 @@ const AccountForm = ({setToken, setUser}) => {
                 setPassword('');
                 setToken(token);
                 setUser(username);
-                // navigate to the root route of the app
                 history.push('/');
             }
         }

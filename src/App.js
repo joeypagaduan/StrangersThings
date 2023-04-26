@@ -3,7 +3,9 @@ import { Route, Link } from 'react-router-dom';
 
 import {
     AccountForm,
-    Posts
+    Home,
+    Posts,
+    Profile
 } from './components';
 
 const App = () => {
@@ -18,20 +20,26 @@ const App = () => {
             <nav>
                 <Link to="/">Home</Link> |
                 <Link to="/posts">Posts</Link> |
-                <Link to="/account/login">Log In</Link>
+                {
+                    token
+                        ? <Link to="/profile">My Profile</Link>
+                        : <Link to="/account/login">Log In</Link>
+                }
             </nav>
 
             <Route exact path="/">
-                <h1>Stranger's Things</h1>
+                <Home user={user} />
             </Route>
             <Route path="/posts">
-                <Posts />
+                <Posts  token={token} />
             </Route>
-            <Route exact path="/account">
-                <h1>My Account</h1>
+            <Route exact path="/profile">
+                <Profile user={user} />
             </Route>
             <Route path="/account/:actionType">
-                <AccountForm setToken={setToken} setUser={setUser}/>
+                <AccountForm 
+                    setToken={setToken}
+                    setUser={setUser}/>
             </Route>
         </>
     )
