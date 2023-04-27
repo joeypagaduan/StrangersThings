@@ -22,7 +22,6 @@ const Posts = ({posts, fetchPosts, token}) => {
                             <Link to={`/posts/${post._id}`}>
                                 See More
                             </Link>
-                            <hr />
                         </PostDetails>
                     )
                 )}
