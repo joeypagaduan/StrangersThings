@@ -37,7 +37,7 @@ const AccountForm = ({setToken, setUser}) => {
                 setUsername('');
                 setPassword('');
                 setToken(token);
-                setUser(username);
+                setUser(data);
                 history.push('/');
             }
         }

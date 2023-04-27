@@ -53,11 +53,15 @@ const App = () => {
                     /> : <strong>No posts to display!</strong>
                 }
             </Route>
-            <Route path="/posts/:postID">
-                <PostPage posts={posts} />
+            <Route path="/posts/:post_Id">
+                <PostPage
+                    fetchPosts={fetchPosts}
+                    token={token}
+                    posts={posts} 
+                />
             </Route>
             <Route exact path="/profile">
-                <Profile user={user} />
+                <Profile user={user} token={token}/>
             </Route>
             <Route path="/account/:actionType">
                 <AccountForm 

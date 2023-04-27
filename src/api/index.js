@@ -9,13 +9,14 @@ const API_ENDPOINTS = {
     user: "/users/me",
 }
 
-const getURL = (endpoint) => {
+const getURL = (endpoint, postId) => {
     const path = API_ENDPOINTS[endpoint];
     if (!path) {
         throw new Error ("Invalid API endpoint specified");
     }
+    const url = BASE_URL + COHORT_NAME + path + (postId ? `/${postId}` : '');
 
-    return BASE_URL + COHORT_NAME + path;
+    return url;
 }
 
 const getOptions = (method, body, token) => ({
@@ -27,10 +28,10 @@ const getOptions = (method, body, token) => ({
     ...( body && { body: JSON.stringify(body) }),
 });
 
-export const fetchFromAPI = async({endpoint, method, body, token}) => {
+export const fetchFromAPI = async({endpoint, method, body, token, postId}) => {
     try {
         const result = await fetch(
-            getURL(endpoint),
+            getURL(endpoint, postId),
             getOptions(method, body, token),
         );
         const response = await result.json();

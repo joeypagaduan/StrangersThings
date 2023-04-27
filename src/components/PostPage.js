@@ -1,12 +1,19 @@
 import React from "react";
-import { useParams, Link } from 'react-router-dom';
+import { useParams, useHistory, Link } from 'react-router-dom';
 import { PostDetails } from '.';
 
-const PostPage = ({posts}) => {
+const PostPage = ({posts, fetchPosts, token}) => {
     const params = useParams();
-    const { postId } = params;
+    const { post_Id } = params;
 
-    const post = posts.find(post => post.id == postId);
+    const history = useHistory();
+
+    const post = posts.find(post => post._id == post_Id);
+
+    const onDelete = async () => {
+        await fetchPosts();
+        history.push('/posts');
+    }
 
     if (!post) {
         return (
@@ -17,7 +24,7 @@ const PostPage = ({posts}) => {
         );
     }
 
-    return <PostDetails post={post} />
+    return <PostDetails onDelete={onDelete} post={post} token={token} />
 }
 
 export default PostPage;
