@@ -6,7 +6,8 @@ import {
     AccountForm,
     Home,
     Posts,
-    Profile
+    Profile,
+    PostPage
 } from './components';
 
 const App = () => {
@@ -43,7 +44,7 @@ const App = () => {
             <Route exact path="/">
                 <Home user={user} />
             </Route>
-            <Route path="/posts">
+            <Route exact path="/posts">
                 {posts
                     ? <Posts
                         token={token}
@@ -51,6 +52,9 @@ const App = () => {
                         posts={posts}
                     /> : <strong>No posts to display!</strong>
                 }
+            </Route>
+            <Route path="/posts/:postID">
+                <PostPage posts={posts} />
             </Route>
             <Route exact path="/profile">
                 <Profile user={user} />
