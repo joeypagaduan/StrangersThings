@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import { Link } from 'react-router-dom';
 import { useParams, useHistory } from "react-router-dom";
-import { fetchFromAPI } from "../api";
+import { callAPI } from "../api";
 
 const AccountForm = ({setToken, setUser}) => {
     const params = useParams();
@@ -21,15 +21,15 @@ const AccountForm = ({setToken, setUser}) => {
                 password
             }
         }
-        const data = await fetchFromAPI({
-            endpoint: actionType,
+        const data = await callAPI({
+            path: `/users/${actionType}`,
             method: "post",
             body: requestBody,
         })
         const {token} = data;
         if (token) {
-            const data = await fetchFromAPI({
-                endpoint: 'user',
+            const data = await callAPI({
+                path: '/users/me',
                 token,
             })
             const username = data?.username;

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { fetchFromAPI } from '../api';
+import { callAPI } from '../api';
 
 const AddPost = ({token, fetchPosts}) => {
     const [title, setTitle] = useState('');
@@ -12,8 +12,8 @@ const AddPost = ({token, fetchPosts}) => {
     const addPost = async (event) => {
         event.preventDefault();
 
-        const responseData = await fetchFromAPI({
-            endpoint: 'posts',
+        const responseData = await callAPI({
+            path: '/posts',
             method: "post",
             token,
             body: {

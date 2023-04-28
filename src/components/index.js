@@ -6,3 +6,4 @@ export { default as AddPost} from './AddPost';
 export { default as PostDetails} from './PostDetails';
 export { default as PostPage} from './PostPage';
 export { default as Message} from './Message';
+export { default as MessageForm } from './MessageForm';

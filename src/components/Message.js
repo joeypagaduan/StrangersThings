@@ -5,7 +5,7 @@ const Message = ({message}) => (
         <small>
             {message?.user?.username ?? 'Unknown user'}
             {' '}at{' '}
-            <time datetime={message.createdAt}>
+            <time dateTime={message.createdAt}>
                 {new Date(message.createdAt).toLocaleString()}
             </time>
         </small>

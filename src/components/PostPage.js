@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams, useHistory, Link } from 'react-router-dom';
-import { PostDetails, Message } from '.';
+import { PostDetails, Message, MessageForm } from '.';
 
 const PostPage = ({posts, fetchPosts, token}) => {
     const params = useParams();
@@ -26,9 +26,22 @@ const PostPage = ({posts, fetchPosts, token}) => {
         history.push('/posts');
     }
 
+    const messageCreated = async () => {
+        await fetchPosts();
+    }
+
     return (
         <PostDetails onDelete={onDelete} post={post} token={token}>
         {messages.length ? <h2>Messages</h2> : null}
+
+        { token
+            ? !post.isAuthor && <MessageForm
+                postId={post._id}
+                token={token}
+                onSubmit={messageCreated}
+                />
+            : <Link to="/account/login">Want to send a Message? Log in here.</Link>
+        }
             {messages.length ? messages.map(
                 (message, idx) => (
                     <Message key={message.id ?? idx} message={message} />

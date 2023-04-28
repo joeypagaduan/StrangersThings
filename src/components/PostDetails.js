@@ -1,5 +1,5 @@
 import React from "react";
-import { fetchFromAPI } from "../api";
+import { callAPI } from "../api";
 
 const PostDetails = ({
     post: {_id, isAuthor, location, title, description, username, price, createdAt, updatedAt, willDeliver, active}, 
@@ -9,9 +9,8 @@ const PostDetails = ({
     }) => {
 
     const handleDelete = async () => {
-        await fetchFromAPI({
-            endpoint: 'posts',
-            postId: _id,
+        await callAPI({
+            path: `/posts/${_id}`,
             method: 'DELETE',
             token,
         });

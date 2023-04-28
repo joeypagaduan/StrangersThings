@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import { Route, Link } from 'react-router-dom';
-import { fetchFromAPI } from './api';
+import { callAPI } from './api';
 
 import {
     AccountForm,
@@ -16,8 +16,8 @@ const App = () => {
     const [posts, setPosts] = useState([]);
 
     const fetchPosts = async () => {
-        const data = await fetchFromAPI({
-            endpoint: "posts", token
+        const data = await callAPI({
+            path: "/posts", token
         })
 
         if (data?.posts) {
