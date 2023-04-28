@@ -17,7 +17,6 @@ const Profile = ({ user, token }) => {
 
             <h2>Messages About Your Posts</h2>
 
-            {/* vacation.messages.user.username */}
             {
                 user.posts && user.posts
                     .filter(post => post.messages.length > 0)
