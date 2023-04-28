@@ -11,7 +11,7 @@ import {
 } from './components';
 
 const App = () => {
-    const [token, setToken] = useState(null);
+    const [token, setToken] = useState(localStorage.getItem('token') ?? '');
     const [user, setUser] = useState(null);
     const [posts, setPosts] = useState([]);
 
@@ -22,12 +22,29 @@ const App = () => {
 
         if (data?.posts) {
             setPosts(data.posts);
+            console.log('setPosts:', data.posts)
+        }
+
+        if (token && !user) {
+            const data = await callAPI({path: 'users/me', token});
+            if (data.user) {
+                setUser(data.user);
+            }
         }
     }
 
     useEffect(() => {
+        token !== ""
+            ? localStorage.setItem('token', token)
+            : localStorage.removeItem('token');
         fetchPosts();
     }, [token]);
+
+    const onLogout = async () => {
+        setToken("");
+        await fetchPosts();
+        setUser(null);
+    }
 
     return (
         <>
@@ -36,8 +53,12 @@ const App = () => {
                 <Link to="/posts">Posts</Link> |
                 {
                     token
-                        ? <Link to="/profile">My Profile</Link>
-                        : <Link to="/account/login">Log In</Link>
+                        ? (
+                            <>
+                                <Link to="/profile">My Profile</Link>
+                                <a href='#' onClick={onLogout}>Log Out</a>
+                            </>
+                        ) : <Link to="/account/login">Log In</Link>
                 }
             </nav>
 

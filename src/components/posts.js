@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory, useLocation, Link } from "react-router-dom";
 import { AddPost, PostDetails } from '.';
 
 const Posts = ({posts, fetchPosts, token}) => {
-    // const [searchValue, setSearchValue] = useState('');
     const [filteredPosts, setFilteredPosts] = useState(posts);
 
     const history = useHistory();
@@ -18,14 +17,7 @@ const Posts = ({posts, fetchPosts, token}) => {
 
     const handleSearch = (event) => {
         const substring = event.target.value;
-        // setSearchValue(substring);
-        // const filteredPosts = posts
-        //     .filter(post =>
-        //         post.title.toLowerCase().includes(substring.toLowerCase().trim()) ||
-        //         post.description.toLowerCase().includes(substring.toLowerCase().trim())
-        //     );
-        
-        // setFilteredPosts(filteredPosts);
+
         if (substring.trim() !== '') {
             const filteredPosts = posts
                 .filter(post =>
@@ -38,6 +30,15 @@ const Posts = ({posts, fetchPosts, token}) => {
             setFilteredPosts(filteredPosts);
         }
     }
+
+    useEffect(() => {
+        const filteredPosts = posts
+                .filter(post =>
+                    post.title.toLowerCase().includes(searchValue.toLowerCase().trim()) ||
+                    post.description.toLowerCase().includes(searchValue.toLowerCase().trim())
+                );
+        setFilteredPosts(filteredPosts);
+    }, [posts]);
 
     return (
         <>

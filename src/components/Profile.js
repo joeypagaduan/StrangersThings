@@ -5,7 +5,6 @@ import { PostDetails } from '.';
 const Profile = ({ user, token }) => {
     const history = useHistory();
 
-    console.log(user);
     if (!user) {
         history.push('/account/login')
     }
@@ -18,7 +17,7 @@ const Profile = ({ user, token }) => {
             <h2>Messages About Your Posts</h2>
 
             {
-                user.posts && user.posts
+                user?.posts && user.posts
                     .filter(post => post.messages.length > 0)
                     .map((post, idx) => (
                         <PostDetails
@@ -46,7 +45,7 @@ const Profile = ({ user, token }) => {
             <hr />
 
             <h2>My Posts</h2>
-            {user.posts && user.posts.map((post, idx) => (
+            {user?.posts && user.posts.map((post, idx) => (
                 <PostDetails
                     key={post._id ?? idx}
                     post={post}

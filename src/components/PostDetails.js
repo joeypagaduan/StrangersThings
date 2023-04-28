@@ -18,21 +18,23 @@ const PostDetails = ({
     }
 
     return (
-        <div key={_id}>
-            <h3>{title}</h3>
-            <p>Description: {description}</p>
-            <p>{price}</p>
-            <p>Location: {location}</p>
-            {willDeliver && <p>Will Deliver</p>}
-            <p>Posted By: {username}</p>
-            <p>Posted: {createdAt}</p>
-            <p>Updated: {updatedAt}</p>
-            {isAuthor && <button onClick={handleDelete}>Remove Post</button>}
-            {!active && <strong>You removed this post!</strong>}
-            {children}
-            <hr />
-        </div>
-    );
+        active
+            ? (
+            <div key={_id}>
+                <h3>{title}</h3>
+                <p>Description: {description}</p>
+                <p>{price}</p>
+                <p>Location: {location}</p>
+                {willDeliver && <p>Will Deliver</p>}
+                <p>Posted By: {username}</p>
+                <p>Posted: {createdAt}</p>
+                <p>Updated: {updatedAt}</p>
+                {isAuthor && <button onClick={handleDelete}>Remove Post</button>}
+                {children}
+                <hr />
+            </div>
+        ) : ''
+     )
 }
 
 export default PostDetails;
