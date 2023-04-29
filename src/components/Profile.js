@@ -15,7 +15,7 @@ const Profile = ({ user, token }) => {
             <h1>{user?.username}'s Profile</h1>
 
 
-            <h2>Messages About Your Posts</h2>
+            <h2>Messages to You</h2>
 
             {
                 user.posts && user.posts
@@ -27,15 +27,10 @@ const Profile = ({ user, token }) => {
                             token={token}
                         >
                             {
-                                post.messages.map((comment, idx) => (
-                                    <p key={comment.id ?? idx}>
-                                        <strong>{comment.user?.username ?? 'Unknown User'}: </strong>
-                                        {comment.content} 
-                                        <small>{' '}
-                                            (<time dateTime={comment.createdAt}>
-                                                {new Date(comment.createdAt).toLocaleString()}
-                                            </time>)
-                                        </small>
+                                post.messages.map((message, idx) => (
+                                    <p key={message.id ?? idx}>
+                                        <strong>{message.fromUser.username ?? 'Unknown User'}: </strong>
+                                        {message.content} 
                                     </p>
                                 ))
                             }

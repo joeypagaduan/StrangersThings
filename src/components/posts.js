@@ -8,7 +8,6 @@ const Posts = ({posts, fetchPosts, token}) => {
     const query = new URLSearchParams(search);
 
     const [searchValue, setSearchValue] = useState(query.get('searchValue') || '');
-    // const [filteredPosts, setFilteredPosts] = useState(posts);
 
     const history = useHistory();
 
@@ -21,13 +20,6 @@ const Posts = ({posts, fetchPosts, token}) => {
     const handleSearch = (event) => {
         const substring = event.target.value;
 
-        // if (substring.trim() !== '') {
-            // const filteredPosts = posts
-            //     .filter(post =>
-            //         post.title.toLowerCase().includes(substring.toLowerCase().trim()) ||
-            //         post.description.toLowerCase().includes(substring.toLowerCase().trim())
-            //     );
-            
             const search = new URLSearchParams({searchValue: substring.trim()});
             history.push('/posts?' + search.toString());
             setSearchValue(substring);
