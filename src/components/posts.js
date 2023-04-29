@@ -18,14 +18,7 @@ const Posts = ({posts, fetchPosts, token}) => {
 
     const handleSearch = (event) => {
         const substring = event.target.value;
-        // setSearchValue(substring);
-        // const filteredPosts = posts
-        //     .filter(post =>
-        //         post.title.toLowerCase().includes(substring.toLowerCase().trim()) ||
-        //         post.description.toLowerCase().includes(substring.toLowerCase().trim())
-        //     );
-        
-        // setFilteredPosts(filteredPosts);
+
         if (substring.trim() !== '') {
             const filteredPosts = posts
                 .filter(post =>
