@@ -3,14 +3,16 @@ import { useHistory, useLocation, Link } from "react-router-dom";
 import { AddPost, PostDetails } from '.';
 
 const Posts = ({posts, fetchPosts, token}) => {
-    // const [searchValue, setSearchValue] = useState('');
-    const [filteredPosts, setFilteredPosts] = useState(posts);
+
+    const {search} = useLocation();
+    const query = new URLSearchParams(search);
+
+    const [searchValue, setSearchValue] = useState(query.get('searchValue') || '');
+    // const [filteredPosts, setFilteredPosts] = useState(posts);
 
     const history = useHistory();
-    const {search} = useLocation();
 
-    const query = new URLSearchParams(search);
-    const searchValue = query.get('searchValue') || '';
+    const filteredPosts = filterPosts(posts, searchValue);
 
     const onDelete = async () => {
         await fetchPosts();
@@ -19,19 +21,19 @@ const Posts = ({posts, fetchPosts, token}) => {
     const handleSearch = (event) => {
         const substring = event.target.value;
 
-        if (substring.trim() !== '') {
-            const filteredPosts = posts
-                .filter(post =>
-                    post.title.toLowerCase().includes(substring.toLowerCase().trim()) ||
-                    post.description.toLowerCase().includes(substring.toLowerCase().trim())
-                );
+        // if (substring.trim() !== '') {
+            // const filteredPosts = posts
+            //     .filter(post =>
+            //         post.title.toLowerCase().includes(substring.toLowerCase().trim()) ||
+            //         post.description.toLowerCase().includes(substring.toLowerCase().trim())
+            //     );
             
             const search = new URLSearchParams({searchValue: substring.trim()});
             history.push('/posts?' + search.toString());
-            setFilteredPosts(filteredPosts);
-        }
+            setSearchValue(substring);
+        // }
     }
-
+    
     return (
         <>
             <h1>Posts</h1>
@@ -63,5 +65,13 @@ const Posts = ({posts, fetchPosts, token}) => {
         </>
     );
 }
+
+function filterPosts (posts, substring) {
+    return posts.filter(post =>
+        post.title.toLowerCase().includes(substring.toLowerCase().trim()) ||
+        post.description.toLowerCase().includes(substring.toLowerCase().trim())
+        )}
+
+
 
 export default Posts;
