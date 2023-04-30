@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Chathura:wght@700&family=Quantico:ital@1&display=swap');
+
+/* font-family: 'Amatic SC', cursive;
+font-family: 'Chathura', sans-serif;
+font-family: 'Quantico', sans-serif; */
+
+* {
+    font-family: 'Quantico', sans-serif;
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Amatic SC', cursive;
+    font-size: 4em;
+    margin: 5px;
+    padding: 0px;
+}
+
+h2 {
+    text-align: center;
+    color: darkred;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    width: 97vw;
+    justify-content: space-around;
+    font-size: 1.1em;
+}
+
+nav a {
+    display: block;
+}
+
+#welcomeUser {
+    display: flex;
+    flex-direction: column;    
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+#welcomeUser p {
+    text-align: center;
+    font-size: 1.5em;
+}
+
+#welcomeUser a {
+    text-align: center;
+}
+
+#logo {
+    align-items: center;
+    width: 35%;
+    border-radius: 30px;
+
+}
+
+#searchDiv {
+    display: flex;
+    flex-direction: column;    
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+#searchDiv h2 {
+    text-align: center;
+    padding: 0px;
+    margin: 10px 0px 3px 0px;
+    color: blue;
+}
+
+#searchBox {
+    background-color: darkturquoise;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2px;
+    width: 400px;
+}
+
+.postTitle {
+    margin: 4px;
+}
+
+.postDiv {
+    display: flex;
+    flex-direction: row;    
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.postDiv a {
+    margin: 8px 4px 4px 4px;
+    text-align: center;
+}
+
+#addAPost {
+    display: flex;
+    width: 97vw;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    flex-wrap: wrap;
+    width: 22vw;
+    border-radius: 10px;
+    margin: 5px 4px 7px 4px;
+    overflow-wrap: break-word;
+    padding: 20px;
+    background-image: linear-gradient(rgba(227, 140, 176, 0.264), rgb(207, 68, 249) );
+    border: 1px solid gray;
+}
+
+#myMessages {
+    border-radius: 10px;
+    margin: 5px 4px 7px 4px;
+    padding: 20px;
+    background-image: linear-gradient(rgba(227, 140, 176, 0.264), rgb(207, 68, 249) );
+    border: 1px solid gray;
+}
+
+.details p {
+    margin: 4px;
+}
+
+#singlePostView {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.messageBox {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    background-color: lightblue;
+    border-radius: 5px;
+}
+
+#signLogForm {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    background-color: brown;
+}
+
+#signLogName {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5px;
+}
+
+#signLogPassword {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5px 0px 5px 0px;
+}
+
+.loginBox {
+    border-radius: 5px;
+    width: 150px;
+}
+
+#registerLoginDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#registerLoginDiv a {
+    margin: 10px 4px;
+
+}
+
+#registerLoginButton {
+    border-radius: 5px;
+    margin-top: 10px;
+    width: 60px;
+    height: 30px;
+    background-color: rgb(155, 184, 155);
+}
+
+#registerLoginButton:hover {
+    background-color: green;
+}
