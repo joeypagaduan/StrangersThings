@@ -7,7 +7,7 @@ const PostDetails = ({
     onDelete,
     children
     }) => {
-
+console.log(active,title);
     const handleDelete = async () => {
         await callAPI({
             path: `/posts/${_id}`,

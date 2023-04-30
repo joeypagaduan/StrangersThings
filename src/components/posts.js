@@ -39,8 +39,6 @@ const Posts = ({posts, fetchPosts, token}) => {
                 />
             </div>    
 
-            <h1>Posts</h1>
-
             <div className="postDiv">
                 {filteredPosts.length ?
                     filteredPosts.map(

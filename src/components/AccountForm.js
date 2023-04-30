@@ -70,6 +70,7 @@ const AccountForm = ({setToken, setUser}) => {
                     {actionType === "register"
                         ? <Link to="/account/login">Already have an account? Log in here.</Link>
                         : <Link to="/account/register">Need an account? Register here.</Link>}
+                        <img src="/images/800_800logo2.png" alt="Stranger's Things Logo" id='logo'/>
                 </div>
             </form>
         </>

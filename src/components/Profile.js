@@ -5,7 +5,6 @@ import { PostDetails } from '.';
 const Profile = ({ user, token }) => {
     const history = useHistory();
 
-    console.log(user);
     if (!user) {
         history.push('/account/login')
     }
@@ -16,7 +15,6 @@ const Profile = ({ user, token }) => {
 
 
             <h2>Messages to You</h2>
-
             {
                 user.posts && user.posts
                     .filter(post => post.messages.length > 0)
@@ -35,6 +33,18 @@ const Profile = ({ user, token }) => {
                                 ))
                             }
                         </PostDetails>
+                    ))
+            }
+            <h2>Messages You've Sent</h2>
+            <h3>{user.messages.length}</h3>
+            {
+                user.messages && user.messages
+                    .filter(message => message.fromUser._id === user._id)
+                    .map((message, idx) => (
+                        <p key={message._id ?? idx}>
+                            <strong>{message.post.title}</strong>
+                            {message.content} 
+                        </p>
                     ))
             }
 

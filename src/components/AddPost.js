@@ -26,7 +26,6 @@ const AddPost = ({token, fetchPosts}) => {
                 }
             }
         });
-        // console.log(responseData);
         const {post} = responseData;
         if (post) {
             setTitle('');
@@ -39,53 +38,55 @@ const AddPost = ({token, fetchPosts}) => {
     }
 
     return (
-        <form onSubmit={addPost}>
+        <>
             <h2>Add a New Post</h2>
+            <form onSubmit={addPost} id="addAPost">
 
-            <label htmlFor="title">Title</label>
-            <input
-                type="text"
-                name="title" 
-                onChange={event => setTitle(event.target.value)}
-                value={title}
-            />
+                <label htmlFor="title">Title</label>
+                <input
+                    type="text"
+                    name="title" 
+                    onChange={event => setTitle(event.target.value)}
+                    value={title}
+                />
 
-            <label htmlFor="description">Description</label>
-            <input
-                type="text"
-                name="description"
-                onChange={event => setDescription(event.target.value)}
-                value={description}
-            />
+                <label htmlFor="description">Description</label>
+                <input
+                    type="text"
+                    name="description"
+                    onChange={event => setDescription(event.target.value)}
+                    value={description}
+                />
 
-            <label htmlFor="price">Price</label>
-            <input
-                type="text"
-                name="price"
-                onChange={event => setPrice(event.target.value)}
-                value={price}
-            />
+                <label htmlFor="price">Price</label>
+                <input
+                    type="text"
+                    name="price"
+                    onChange={event => setPrice(event.target.value)}
+                    value={price}
+                />
 
-            <label htmlFor="location">Location</label>
-            <input
-                type="text"
-                name="location"
-                onChange={event => setLocation(event.target.value)}
-                value={location}
-            />
+                <label htmlFor="location">Location</label>
+                <input
+                    type="text"
+                    name="location"
+                    onChange={event => setLocation(event.target.value)}
+                    value={location}
+                />
 
-            
-            <label htmlFor="willDeliver">Delivery Available?</label>
-            <input
-                type="checkbox"
-                checked={willDeliver}
-                onChange={event => setWillDeliver(!willDeliver)}
-                value={location}
-            />
+                
+                <label htmlFor="willDeliver">Delivery?</label>
+                <input
+                    type="checkbox"
+                    checked={willDeliver}
+                    onChange={event => setWillDeliver(!willDeliver)}
+                    value={location}
+                />
 
-            <button type="submit">Submit</button>
-        <hr/>
-        </form>
+                <button type="submit">Submit</button>
+            <hr/>
+            </form>
+        </>
     );
 }
 
