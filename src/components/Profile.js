@@ -36,15 +36,16 @@ const Profile = ({ user, token }) => {
                     ))
             }
             <h2>Messages You've Sent</h2>
-            <h3>{user.messages.length}</h3>
             {
                 user.messages && user.messages
                     .filter(message => message.fromUser._id === user._id)
                     .map((message, idx) => (
-                        <p key={message._id ?? idx}>
-                            <strong>{message.post.title}</strong>
-                            {message.content} 
-                        </p>
+                        <div key={message._id ?? idx} id="myMessages">
+                            <span>You said: </span>
+                            <strong> {message.content} </strong>
+                            <span> about </span>
+                            <strong> {message.post.title}</strong> 
+                        </div>
                     ))
             }
 

@@ -119,6 +119,14 @@ nav a {
     border: 1px solid gray;
 }
 
+#myMessages {
+    border-radius: 10px;
+    margin: 5px 4px 7px 4px;
+    padding: 20px;
+    background-image: linear-gradient(rgba(227, 140, 176, 0.264), rgb(207, 68, 249) );
+    border: 1px solid gray;
+}
+
 .details p {
     margin: 4px;
 }
