@@ -31,23 +31,25 @@ const PostPage = ({posts, fetchPosts, token}) => {
     }
 
     return (
-        <PostDetails onDelete={onDelete} post={post} token={token}>
-        {messages.length ? <h2>Messages</h2> : null}
+        <div id="singlePostView">
+            <PostDetails onDelete={onDelete} post={post} token={token}>
+            {messages.length ? <h2>Messages</h2> : null}
 
-        { token
-            ? !post.isAuthor && <MessageForm
-                postId={post._id}
-                token={token}
-                onSubmit={messageCreated}
-                />
-            : <Link to="/account/login">Want to send a Message? Log in here.</Link>
-        }
-            {messages.length ? messages.map(
-                (message, idx) => (
-                    <Message key={message.id ?? idx} message={message} />
-                )
-            ): null}
-        </PostDetails>
+            { token
+                ? !post.isAuthor && <MessageForm
+                    postId={post._id}
+                    token={token}
+                    onSubmit={messageCreated}
+                    />
+                : <Link to="/account/login">Want to send a Message? Log in here.</Link>
+            }
+                {messages.length ? messages.map(
+                    (message, idx) => (
+                        <Message key={message.id ?? idx} message={message} />
+                    )
+                ): null}
+            </PostDetails>
+        </div>
     )
 }
 

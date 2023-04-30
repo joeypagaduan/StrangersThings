@@ -28,17 +28,20 @@ const Posts = ({posts, fetchPosts, token}) => {
     
     return (
         <>
-            <h1>Posts</h1>
             {token && <AddPost token={token} fetchPosts={fetchPosts} /> }
+            <div id="searchDiv">
+                <h2>Search Posts</h2>
+                <input id="searchBox"
+                    name="search"
+                    type="text" 
+                    onChange={handleSearch} 
+                    value={searchValue}
+                />
+            </div>    
 
-            <input 
-                name="search"
-                type="text" 
-                onChange={handleSearch} 
-                value={searchValue}
-            />
+            <h1>Posts</h1>
 
-            <div id="postDiv">
+            <div className="postDiv">
                 {filteredPosts.length ?
                     filteredPosts.map(
                         (post, idx) => (

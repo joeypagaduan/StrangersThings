@@ -1,7 +1,3 @@
-* {
-    
-}
-
 h1 {
     text-align: center;
 }
@@ -9,7 +5,7 @@ h1 {
 nav {
     display: flex;
     flex-direction: row;
-    width: 100vw;
+    width: 97vw;
     justify-content: space-around;
 }
 
@@ -17,7 +13,30 @@ nav a {
     display: block;
 }
 
-#postDiv {
+#searchDiv {
+    display: flex;
+    flex-direction: column;    
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+#searchDiv h2 {
+    text-align: center;
+    padding: 0px;
+    margin: 10px 0px 3px 0px;
+    color: blue;
+}
+
+#searchBox {
+    background-color: darkturquoise;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2px;
+}
+
+.postDiv {
     display: flex;
     flex-direction: row;    
     justify-content: center;
@@ -30,20 +49,65 @@ nav a {
     flex-direction: column;
     align-content: center;
     flex-wrap: wrap;
-    width: 35vw;
+    width: 22vw;
     border-radius: 10px;
     margin: 5px 4px 7px 4px;
     overflow-wrap: break-word;
     padding: 20px;
     background-image: linear-gradient(rgba(227, 140, 176, 0.264), rgb(207, 68, 249) );
-    width: 250px;
     border: 1px solid gray;
 }
 
-/* .messageBox {
-    width: 25vw;
-    height: 40px;
+#singlePostView {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.messageBox {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
     background-color: lightblue;
     border-radius: 5px;
+}
 
-} */
+#signLogForm {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    background-color: brown;
+}
+
+#signLogName {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5px;
+}
+
+#signLogPassword {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5px 0px 5px 0px;
+}
+
+.loginBox {
+    border-radius: 5px;
+    width: 150px;
+}
+
+#registerLoginDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#registerLoginButton {
+    border-radius: 5px;
+    margin-top: 50px;
+    width: 60px;
+    height: 30px;
+    background-color: green;
+}

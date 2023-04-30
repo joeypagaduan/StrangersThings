@@ -41,13 +41,15 @@ const Profile = ({ user, token }) => {
             <hr />
 
             <h2>My Posts</h2>
-            {user.posts && user.posts.map((post, idx) => (
-                <PostDetails
-                    key={post._id ?? idx}
-                    post={post}
-                    token={token}
-                />
-            ))}
+            <div className="postDiv">
+                {user.posts && user.posts.map((post, idx) => (
+                    <PostDetails
+                        key={post._id ?? idx}
+                        post={post}
+                        token={token}
+                    />
+                ))}
+            </div>
         </>
     )
 }

@@ -46,29 +46,31 @@ const AccountForm = ({setToken, setUser}) => {
     return (
         <>
             <h1>{actionType === "register" ? "Sign Up" : "Log In"}</h1>
-            <form onSubmit={handleSubmit}>
-                <div>
+            <form onSubmit={handleSubmit} id="signLogFrom">
+                <div id="signLogName">
                     <label htmlFor="username">Username</label>
-                    <input
+                    <input className="loginBox"
                         name="username"
                         type="text"
                         value={username}
                         onChange={event => setUsername(event.target.value)}
                     />
                 </div>
-                <div>
+                <div id="signLogPassword">
                     <label htmlFor="password">Password</label>
-                    <input
+                    <input className="loginBox"
                         name="password"
                         type="password"
                         value={password}
                         onChange={event => setPassword(event.target.value)}
                     />
                 </div>
-                <button type="submit">{actionType === "register" ? "Register" : "Log In"}</button>
-                {actionType === "register"
-                    ? <Link to="/account/login">Already have an account? Log in here.</Link>
-                    : <Link to="/account/register">Need an account? Register here.</Link>}
+                <div id="registerLoginDiv">
+                    <button id="registerLoginButton" type="submit">{actionType === "register" ? "Register" : "Log In"}</button>
+                    {actionType === "register"
+                        ? <Link to="/account/login">Already have an account? Log in here.</Link>
+                        : <Link to="/account/register">Need an account? Register here.</Link>}
+                </div>
             </form>
         </>
     );
