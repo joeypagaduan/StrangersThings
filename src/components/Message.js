@@ -3,7 +3,6 @@ import React from 'react';
 const Message = ({message}) => (
     <div>
         <small>
-            {/* {message?.fromUser.username ?? 'From you'} */}
             {'From You '}at{' '}
             <time dateTime={message.createdAt}>
                 {new Date(message.createdAt).toLocaleString()}

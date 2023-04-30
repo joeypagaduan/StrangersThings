@@ -19,10 +19,10 @@ const PostDetails = ({
 
     return (
         active ? (
-            <div key={_id}>
+            <div key={_id} className="details">
                 <h3>{title}</h3>
                 <p>Description: {description}</p>
-                <p>{price}</p>
+                <p>Asking Price: {price}</p>
                 <p>Location: {location}</p>
                 {willDeliver && <p>Will Deliver</p>}
                 <p>Posted By: {username}</p>

@@ -38,7 +38,7 @@ const Posts = ({posts, fetchPosts, token}) => {
                 value={searchValue}
             />
 
-            <div>
+            <div id="postDiv">
                 {filteredPosts.length ?
                     filteredPosts.map(
                         (post, idx) => (

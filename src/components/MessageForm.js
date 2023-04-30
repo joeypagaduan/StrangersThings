@@ -27,8 +27,8 @@ const MessageForm = ({postId, token, onSubmit}) => {
     return (
         <form onSubmit={handleSubmit}>
             <h3>Send a Message</h3>
-            <label htmlFor="message">Message:</label>
-            <input
+            <label htmlFor="message"></label>
+            <input className="messageBox"
                 name="message"
                 type="text"
                 onChange={event => setContent(event.target.value)}
