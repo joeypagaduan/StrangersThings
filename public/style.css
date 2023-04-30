@@ -13,6 +13,18 @@ nav a {
     display: block;
 }
 
+#welcomeUser {
+    display: flex;
+    flex-direction: column;    
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+#logo {
+    align-items: center;
+}
+
 #searchDiv {
     display: flex;
     flex-direction: column;    
@@ -109,5 +121,9 @@ nav a {
     margin-top: 50px;
     width: 60px;
     height: 30px;
+    background-color: rgb(155, 184, 155);
+}
+
+#registerLoginButton:hover {
     background-color: green;
 }
